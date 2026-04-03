@@ -13,8 +13,6 @@ const CORE_DATA_URLS = [
 const STATIC_FILES_TO_CACHE = [
   './',
   './index.html',
-  './index.tsx',
-  './index.css',
   './Uthman.ttf',
   './manifest.json',
   // Note: aistudio-host.js is not included as it's injected and managed by the environment.
@@ -84,9 +82,9 @@ self.addEventListener('fetch', event => {
     }
   }
 
-  // Strategy 1: Network First for App Shell files (index.html, index.tsx, root path)
+  // Strategy 1: Network First for App Shell files (index.html, root path)
   // Ensures the user gets the latest version of the app if online.
-  const isAppShellFile = url.pathname.endsWith('/') || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/index.tsx');
+  const isAppShellFile = url.pathname.endsWith('/') || url.pathname.endsWith('/index.html');
   if (isAppShellFile) {
     event.respondWith(
       fetch(request)
