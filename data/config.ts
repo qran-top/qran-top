@@ -1,0 +1,1 @@
+export const ADMIN_UIDS = ['A7bC3dEfgHijklmNopqRsTuvWxYz'];

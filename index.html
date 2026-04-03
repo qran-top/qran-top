@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' font-family='Amiri Quran, serif' font-size='90' text-anchor='middle' dominant-baseline='central' fill='%2322c55e'%3E۞%3C/text%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QRAN.TOP - مستكشف المصحف الشريف</title>
+    
+    <!-- PWA Manifest & Theme Color -->
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#166534" />
+    
+    <!-- Meta Tags for Social Sharing (SEO & Thumbnails) -->
+    <meta name="description" content="مستكشف قرآني حديث وسريع. تصفح المصحف الشريف، وابحث عن أي كلمة أو عبارة بدقة، واكتشف التراكيب اللغوية بشكل تفاعلي. تجربة فريدة لدراسة وتدبر المصحف." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://qran.top/" />
+    <meta property="og:title" content="QRAN.TOP - مستكشف المصحف الشريف" />
+    <meta property="og:description" content="مستكشف قرآني حديث وسريع. تصفح المصحف الشريف، وابحث عن أي كلمة أو عبارة بدقة، واكتشف التراكيب اللغوية بشكل تفاعلي." />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content="https://qran.top/" />
+    <meta property="twitter:title" content="QRAN.TOP - مستكشف المصحف الشريف" />
+    <meta property="twitter:description" content="مستكشف قرآني حديث وسريع. تصفح المصحف الشريف، وابحث عن أي كلمة أو عبارة بدقة، واكتشف التراكيب اللغوية بشكل تفاعلي." />
+    
+    <!-- Structured Data for Google (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QRAN.TOP",
+      "url": "https://qran.top/",
+      "logo": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' font-size='90' text-anchor='middle' dominant-baseline='central' fill='%2322c55e'%3E%DB%9E%3C/text%3E%3C/svg%3E",
+      "description": "مستكشف قرآني حديث وسريع. تصفح المصحف الشريف، وابحث عن أي كلمة أو عبارة بدقة، واكتشف التراكيب اللغوية بشكل تفاعلي. تجربة فريدة لدراسة وتدبر المصحف.",
+      "applicationCategory": "ReferenceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+
+    <!-- Step 1: Immediately set theme class if needed to prevent FOUC. Must be first. -->
+    <script>
+      (function() {
+        const availableThemes = ['light', 'dark', 'dhuhr', 'duha', 'isha'];
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let themeToSet = 'light'; // New default light theme
+        
+        if (storedTheme && availableThemes.includes(storedTheme)) {
+            themeToSet = storedTheme;
+        } else if (prefersDark) {
+            themeToSet = 'dark'; // Default dark theme
+        }
+
+        const themeClasses = ['dark', ...availableThemes.map(t => `theme-${t}`)];
+        document.documentElement.classList.remove(...themeClasses);
+        
+        document.documentElement.classList.add(`theme-${themeToSet}`);
+        if (['dark', 'isha'].includes(themeToSet)) {
+            document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Scheherazade+New:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  </head>
+  <body>
+    <div id="root">
+      <!-- Static loader to prevent blank screen. React will replace this. -->
+      <div class="static-loader">
+        <div class="loader-symbol-container">
+          <div class="loader-symbol-bg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor"><text x="50" y="50" font-size="80" text-anchor="middle" dominant-baseline="central">۞</text></svg>
+          </div>
+          <div class="loader-symbol-fg"></div>
+        </div>
+        <p class="loader-text">
+          جاري تحميل بيانات المصحف الشريف...
+        </p>
+      </div>
+    </div>
+    
+    <!-- Load Firebase SDKs *before* the app script -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js" defer></script>
+    
+    <script type="module" src="index.tsx"></script>
+    <noscript>
+      <p>This application requires JavaScript to run. Please enable it in your browser settings.</p>
+    </noscript>
+</body>
+</html>

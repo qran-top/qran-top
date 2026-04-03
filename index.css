@@ -1,0 +1,398 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-surface-active: var(--color-surface-active);
+  --color-surface-subtle: var(--color-surface-subtle);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-subtle: var(--color-text-subtle);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-text: var(--color-primary-text);
+  --color-primary-text-strong: var(--color-primary-text-strong);
+  --color-border-default: var(--color-border-default);
+  --color-border-subtle: var(--color-border-subtle);
+}
+
+/* --- THEME DEFINITIONS (5 THEMES) --- */
+
+/* ☀️ Light - "Classic" (Original Light) */
+:root, .theme-light {
+  --color-background: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-surface-hover: #e9ecef;
+  --color-surface-active: #dee2e6;
+  --color-surface-subtle: #f1f3f5;
+  --color-text-primary: #212529;
+  --color-text-secondary: #495057;
+  --color-text-muted: #6c757d;
+  --color-text-subtle: #868e96;
+  --color-primary: #22c55e;
+  --color-primary-hover: #16a34a;
+  --color-primary-text: #15803d;
+  --color-primary-text-strong: #166534;
+  --color-border-default: #dee2e6;
+  --color-border-subtle: #e9ecef;
+}
+
+/* 🌙 Dark - "Classic" (Original Dark) */
+.theme-dark {
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
+  --color-surface-hover: #2c2c2c;
+  --color-surface-active: #383838;
+  --color-surface-subtle: #222222;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #bdbdbd;
+  --color-text-muted: #9e9e9e;
+  --color-text-subtle: #757575;
+  --color-primary: #22c55e;
+  --color-primary-hover: #16a34a;
+  --color-primary-text: #4ade80;
+  --color-primary-text-strong: #86efac;
+  --color-border-default: #363636;
+  --color-border-subtle: #2a2a2a;
+}
+
+/* ☀️ Dhuhr - "Bauhaus" */
+.theme-dhuhr {
+  --color-background: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-surface-hover: #e9ecef;
+  --color-surface-active: #dee2e6;
+  --color-surface-subtle: #f1f3f5;
+  --color-text-primary: #000000;
+  --color-text-secondary: #212529;
+  --color-text-muted: #495057;
+  --color-text-subtle: #868e96;
+  --color-primary: #007bff;
+  --color-primary-hover: #0069d9;
+  --color-primary-text: #007bff;
+  --color-primary-text-strong: #0056b3;
+  --color-border-default: #dee2e6;
+  --color-border-subtle: #e9ecef;
+}
+
+/* 🌃 Isha - "Baroque" */
+.theme-isha {
+  --color-background: #000000;
+  --color-surface: #1a1a1a;
+  --color-surface-hover: #2c2c2c;
+  --color-surface-active: #383838;
+  --color-surface-subtle: #222222;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-text-muted: #bdbdbd;
+  --color-text-subtle: #9e9e9e;
+  --color-primary: #ffd700; /* Royal Gold */
+  --color-primary-hover: #e6c200;
+  --color-primary-text: #ffd700;
+  --color-primary-text-strong: #ffec80;
+  --color-border-default: #363636;
+  --color-border-subtle: #2a2a2a;
+}
+
+/* ✨ Duha - "Art Nouveau" (Light) */
+.theme-duha {
+  --color-background: #fdfaf6; /* Ivory */
+  --color-surface: #ffffff;
+  --color-surface-hover: #f7f2ec;
+  --color-surface-active: #f2eade;
+  --color-surface-subtle: #f9f5f0;
+  --color-text-primary: #556b2f; /* Dark Olive Green */
+  --color-text-secondary: #6B8E23;
+  --color-text-muted: #808000;
+  --color-text-subtle: #9ACD32;
+  --color-primary: #DAA520; /* Goldenrod */
+  --color-primary-hover: #B8860B;
+  --color-primary-text: #DAA520;
+  --color-primary-text-strong: #B8860B;
+  --color-border-default: #e5e0d7;
+  --color-border-subtle: #f0eae1;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  /* Ensure font rendering is optimal on mobile */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Base font styles */
+.font-quran {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+}
+.font-bismillah {
+  font-family: 'Amiri Quran', serif;
+}
+.font-quran-title {
+  font-family: 'Amiri Quran', serif;
+  font-weight: 600;
+}
+
+/* Uthmani font size classes */
+.uthmani-font { 
+  font-family: 'Amiri Quran', serif; 
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  font-variant-ligatures: common-ligatures;
+  /* Critical for correct mark positioning on mobile browsers */
+  font-optical-sizing: auto;
+}
+.uthmani-font.quran-text-xs { font-size: 1.25rem; line-height: 2.4; }
+.uthmani-font.quran-text-sm { font-size: 1.5rem; line-height: 2.6; }
+.uthmani-font.quran-text-md { font-size: 1.75rem; line-height: 2.8; }
+.uthmani-font.quran-text-lg { font-size: 2.1rem; line-height: 3.0; }
+.uthmani-font.quran-text-xl { font-size: 2.5rem; line-height: 3.2; }
+.uthmani-font.quran-text-xxl { font-size: 3rem; line-height: 3.5; }
+
+/* Imla'i font size classes - Using System Default */
+.imlai-font { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.imlai-font.quran-text-xs { font-size: 1.1rem; line-height: 1.9; }
+.imlai-font.quran-text-sm { font-size: 1.25rem; line-height: 2.0; }
+.imlai-font.quran-text-md { font-size: 1.5rem; line-height: 2.2; }
+.imlai-font.quran-text-lg { font-size: 1.8rem; line-height: 2.4; }
+.imlai-font.quran-text-xl { font-size: 2.1rem; line-height: 2.6; }
+.imlai-font.quran-text-xxl { font-size: 2.4rem; line-height: 2.8; }
+
+/* Imla'i 2 (Scheherazade) font size classes */
+.scheherazade-font { 
+  font-family: 'Scheherazade New', serif;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+.scheherazade-font.quran-text-xs { font-size: 1.2rem; line-height: 2.0; }
+.scheherazade-font.quran-text-sm { font-size: 1.35rem; line-height: 2.1; }
+.scheherazade-font.quran-text-md { font-size: 1.6rem; line-height: 2.3; }
+.scheherazade-font.quran-text-lg { font-size: 1.9rem; line-height: 2.5; }
+.scheherazade-font.quran-text-xl { font-size: 2.2rem; line-height: 2.7; }
+.scheherazade-font.quran-text-xxl { font-size: 2.5rem; line-height: 2.9; }
+
+/* Crystalline Gradient and Shine Animation */
+.crystalline-gradient {
+  background: linear-gradient(
+    -45deg,
+    #1e90ff, /* Dodger Blue */
+    #9400d3, /* Dark Violet */
+    #ff1493, /* Deep Pink/Red */
+    #ffd700  /* Gold/Yellow */
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes shine-effect {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-shine {
+  animation: shine-effect 5s ease infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Highlight Pulse Animation */
+@keyframes highlight-pulse {
+  0% { background-color: rgba(253, 224, 71, 0.6); } /* bg-yellow-300 with opacity */
+  50% { background-color: rgba(253, 224, 71, 0.2); }
+  100% { background-color: rgba(253, 224, 71, 0.6); }
+}
+html.dark .animate-highlight-pulse {
+  animation-name: highlight-pulse-dark;
+}
+@keyframes highlight-pulse-dark {
+  0% { background-color: rgba(250, 204, 21, 0.3); } /* bg-yellow-400 with opacity */
+  50% { background-color: rgba(250, 204, 21, 0.1); }
+  100% { background-color: rgba(250, 204, 21, 0.1); }
+}
+.animate-highlight-pulse {
+  animation: highlight-pulse 1.5s ease-in-out 2; /* Pulse for 3 seconds total */
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+@keyframes pulse-mic {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pulse-mic {
+  animation: pulse-mic 1.5s ease-in-out infinite;
+}
+
+/* --- Mushaf Page Styles (Theme-Aware) --- */
+.mushaf-page {
+  border: 10px solid;
+  border-image-slice: 10;
+  border-image-repeat: round;
+  padding: 2rem 3rem;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s, border-image-source 0.3s;
+}
+
+@media (max-width: 640px) {
+  .mushaf-page {
+    padding: 1.5rem 1rem;
+    border-width: 6px;
+  }
+}
+
+/* Theme: Light */
+.theme-light .mushaf-page {
+  background-color: #f8f9fa; /* slightly off-white */
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M15 0 C 15 15, 0 15, 0 15 L 0 0 Z' fill='none' stroke='%23166534' stroke-width='1'/%3E%3Cpath d='M15 0 C 15 15, 30 15, 30 15 L 30 0 Z' fill='none' stroke='%23166534' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 0 15, 0 15 L 0 30 Z' fill='none' stroke='%23166534' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 30 15, 30 15 L 30 30 Z' fill='none' stroke='%23166534' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Theme: Dark */
+.theme-dark .mushaf-page {
+  background-color: #1e1e1e;
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M15 0 C 15 15, 0 15, 0 15 L 0 0 Z' fill='none' stroke='%234ade80' stroke-width='1'/%3E%3Cpath d='M15 0 C 15 15, 30 15, 30 15 L 30 0 Z' fill='none' stroke='%234ade80' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 0 15, 0 15 L 0 30 Z' fill='none' stroke='%234ade80' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 30 15, 30 15 L 30 30 Z' fill='none' stroke='%234ade80' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Theme: Dhuhr */
+.theme-dhuhr .mushaf-page {
+  background-color: #f8f9fa;
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M15 0 C 15 15, 0 15, 0 15 L 0 0 Z' fill='none' stroke='%230056b3' stroke-width='1'/%3E%3Cpath d='M15 0 C 15 15, 30 15, 30 15 L 30 0 Z' fill='none' stroke='%230056b3' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 0 15, 0 15 L 0 30 Z' fill='none' stroke='%230056b3' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 30 15, 30 15 L 30 30 Z' fill='none' stroke='%230056b3' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Theme: Isha */
+.theme-isha .mushaf-page {
+  background-color: #1a1a1a;
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M15 0 C 15 15, 0 15, 0 15 L 0 0 Z' fill='none' stroke='%23ffd700' stroke-width='1'/%3E%3Cpath d='M15 0 C 15 15, 30 15, 30 15 L 30 0 Z' fill='none' stroke='%23ffd700' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 0 15, 0 15 L 0 30 Z' fill='none' stroke='%23ffd700' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 30 15, 30 15 L 30 30 Z' fill='none' stroke='%23ffd700' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Theme: Duha */
+.theme-duha .mushaf-page {
+  background-color: #fdfaf6;
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M15 0 C 15 15, 0 15, 0 15 L 0 0 Z' fill='none' stroke='%23B8860B' stroke-width='1'/%3E%3Cpath d='M15 0 C 15 15, 30 15, 30 15 L 30 0 Z' fill='none' stroke='%23B8860B' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 0 15, 0 15 L 0 30 Z' fill='none' stroke='%23B8860B' stroke-width='1'/%3E%3Cpath d='M15 30 C 15 15, 30 15, 30 15 L 30 30 Z' fill='none' stroke='%23B8860B' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.mushaf-header, .mushaf-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Amiri Quran', serif;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+.mushaf-header { margin-bottom: 1rem; }
+/* Modified footer for 3-item layout (Previous - Current - Next) */
+.mushaf-footer { margin-top: 1rem; text-align: center; justify-content: space-between; padding: 0 1rem; }
+
+.ayah-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary-text-strong);
+  background-color: transparent;
+  vertical-align: middle;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: bold;
+  font-size: 0.7em;
+  color: var(--color-text-primary);
+  margin: 0 0.25em;
+  line-height: 1;
+  position: relative;
+}
+.ayah-marker::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+}
+
+.hizb-marker {
+  position: absolute;
+  top: 50%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-default);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  font-family: 'Amiri Quran', serif;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.hizb-marker.right {
+  right: 0;
+  transform: translate(calc(100% + 10px), -50%);
+}
+.hizb-marker.left {
+  left: 0;
+  transform: translate(calc(-100% - 10px), -50%);
+}
+
+/* --- Static Loader Styles --- */
+.static-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--color-background);
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+.loader-symbol-container {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+}
+.loader-symbol-bg, .loader-symbol-fg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+.loader-symbol-bg {
+  color: #e5e7eb;
+}
+.dark .loader-symbol-bg {
+  color: #374151;
+}
+.loader-symbol-fg {
+  background: linear-gradient(-45deg, #1e90ff, #9400d3, #ff1493, #ffd700);
+  background-size: 400% 400%;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' font-size='80' text-anchor='middle' dominant-baseline='central' fill='black'%3E%DB%9E%3C/text%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' font-size='80' text-anchor='middle' dominant-baseline='central' fill='black'%3E%DB%9E%3C/text%3E%3C/svg%3E") no-repeat center / contain;
+  animation: shine-effect 5s ease infinite, fill-effect 1.8s ease-in-out forwards;
+}
+
+@keyframes fill-effect {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0% 0 0 0); }
+}
+.loader-text {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+}
+
+/* This file is intentionally blank. */
+/* It exists to prevent a 404 error that might appear in some development environments. */
