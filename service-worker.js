@@ -1,7 +1,7 @@
 // service-worker.js
 
-const STATIC_CACHE_NAME = 'qran-top-static-v19'; // Version bump to force update
-const DATA_CACHE_NAME = 'qran-top-data-v13';
+const STATIC_CACHE_NAME = 'qran-top-static-v17'; // Version bump to force update
+const DATA_CACHE_NAME = 'qran-top-data-v11';
 
 // Core data files that are essential for the app to work offline.
 const CORE_DATA_URLS = [
@@ -13,6 +13,7 @@ const CORE_DATA_URLS = [
 const STATIC_FILES_TO_CACHE = [
   './',
   './index.html',
+  './Uthman.ttf',
   './manifest.json',
   // Note: aistudio-host.js is not included as it's injected and managed by the environment.
   './thumbnail.svg' // Add the new thumbnail to the cache
